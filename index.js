@@ -14,7 +14,12 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    res.send("¡Hola, mundo!");
+});
+
 const recetasRouter = require('./routes/recetas.router');
+
 app.use('/recetas', recetasRouter);
 
 const PORT = process.env.PORT || 3001;
